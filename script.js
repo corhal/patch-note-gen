@@ -1,5 +1,9 @@
 "use strict";
 
+document.body.setAttribute("style", "white-space: pre;");
+
+const labelParseResult = document.querySelector(".parse--result");
+
 const sheetLink =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vTazuZXRFiO0J51-vooSGwX4wmcXHgsV-t6I67WiITjIm8jlWilikbw8cxTzXAqCT-nfg0VWkdJtI6J/pub?gid=0&single=true&output=csv";
 const fallBackLanguage = "en";
@@ -57,7 +61,7 @@ const languageCodes = [
 ];
 
 let originalNotes = {};
-let resultNotes = "";
+let resultNotes = [];
 
 Papa.parse(sheetLink, {
   download: true,
@@ -72,12 +76,20 @@ function handleParsedFile(parsedFile) {
   originalNotes = parsedFile.data[0];
   formatNotes(originalNotes);
 
+  resultNotes.forEach((note) => {
+    document.body.appendChild(document.createTextNode(note));
+  });
+
+  document.body.removeChild(labelParseResult);
+
   console.log(resultNotes);
 }
 
 function formatNotes(notes) {
   languageCodes.forEach((code) => {
-    resultNotes += formatNoteToLanguage(tryGetNoteForCode(notes, code), code);
+    resultNotes.push(
+      formatNoteToLanguage(tryGetNoteForCode(notes, code), code)
+    );
   });
 }
 
