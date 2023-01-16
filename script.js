@@ -7,10 +7,10 @@ const labelParseResult = document.querySelector(".parse--result");
 const sheetLink =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vTazuZXRFiO0J51-vooSGwX4wmcXHgsV-t6I67WiITjIm8jlWilikbw8cxTzXAqCT-nfg0VWkdJtI6J/pub?gid=0&single=true&output=csv";
 const fallBackLanguage = "en";
-const supportedLanguages = ["en", "ru", "uk", "fr", "de"];
 const languageCodes = [
   "en-US",
   "ar",
+  "bn-BD",
   "cs-CZ",
   "da-DK",
   "de-DE",
@@ -30,6 +30,7 @@ const languageCodes = [
   "fil",
   "fr-CA",
   "fr-FR",
+  "hi-IN",
   "hr",
   "hu-HU",
   "id",
@@ -43,6 +44,7 @@ const languageCodes = [
   "ms-MY",
   "nl-NL",
   "no-NO",
+  "pa",
   "pl-PL",
   "pt-BR",
   "pt-PT",
@@ -54,6 +56,7 @@ const languageCodes = [
   "th",
   "tr-TR",
   "uk",
+  "ur",
   "vi",
   "zh-CN",
   "zh-HK",
